@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Agenda.Models.Agendar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Francisca Manicure</h1>
+
+<p>
+    <a asp-action="Create">Agendar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Agendamento)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Agendamento)
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAgendamento">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAgendamento">Visualisar</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAgendamento">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
